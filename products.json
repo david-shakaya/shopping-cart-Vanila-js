@@ -1,50 +1,50 @@
 {
   "items": [
   {  "id": "1",
-     "name": "Яблоко красное",
-     "price": 100,
+     "name": "Участок на луне",
+     "price": 10,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-1.jpeg" }
   },
     {  "id": "2",
      "name": "Яблоко красное",
-     "price": 100,
+     "price": 12200,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-2.jpeg" }
   },
     {  "id": "3",
-     "name": "Яблоко красное",
-     "price": 100,
+     "name": "Доля",
+     "price": 1030,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-3.jpeg" }
   },
     {  "id": "4",
-     "name": "Яблоко красное",
-     "price": 100,
+     "name": "Лицо со шрамом",
+     "price": 102,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-4.jpeg" }
   },
     {  "id": "5",
-     "name": "Яблоко красное",
-     "price": 100,
+     "name": "Диван",
+     "price": 90,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-5.jpeg" }
   },
     {  "id": "6",
-     "name": "Яблоко красное",
-     "price": 100,
+     "name": "Приватищазуоцт",
+     "price": 20,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-6.jpeg" }
   },
     {  "id": "7",
      "name": "Яблоко красное",
-     "price": 100,
+     "price": 25,
      "quantity": 0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-7.jpeg" }
   },
     {  "id": "8",
      "name": "Яблоко красное",
-     "price": 1900,
+     "price": 19,
      "quantity": 0,
      "img": { "url": "./images/product-8.jpeg" }
   }

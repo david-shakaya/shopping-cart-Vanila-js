@@ -15,7 +15,7 @@ let result = ''
             result += `<li class="product">
           <div class="img-container">
             <img
-              src="./images/product-1.jpeg"
+              src="${el.img.url}"
               alt="product"
               class="product-img"
             />
@@ -25,7 +25,7 @@ let result = ''
             </button>
           </div>
           <h3>${el.name}</h3>
-          <h4>${el.price}</h4>
+          <h4>${el.price} грн.</h4>
         </li>`
     });
      listProductsRef.insertAdjacentHTML('beforeend', result)  
@@ -34,21 +34,22 @@ let result = ''
      console.log(refs.product());
 
 
- })
-
-listProductsRef.addEventListener('click', (e) => {
+     listProductsRef.addEventListener('click', (e) => {
     if (e.target.nodeName !== 'BUTTON') {
         return
     }
-    console.log(e.target);
-    // const getIdCurrentElInDom = () => e.path[2].getAttribute('id')
+    const getDataAtrOnClick = () => e.target.attributes[1].value
+         const items = products.items
+         const FindIdCurrentEl =()=> items.find(el => {
+             if (el.id === getDataAtrOnClick()) {
+                 el.quantity += 1
+                 console.log(el);
+       return el
+   }
+ })
+console.dir(FindIdCurrentEl());
 })
-
-//  const FindIdCurrentEl =()=> storage.find(el => {
-//    if (el.id === +getIdCurrentElInDom()) {
-//     return el
-//    }
-//  })
+ })
 
 
 
