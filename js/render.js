@@ -1,16 +1,17 @@
 const listProductsRef = document.querySelector('.list-products-js');
 
+import refs from './refs.js'
+
 const getProducts= async () => {
     const response = await fetch('../products.json');
     const products = response.json();
   return products;
 };
-
-
-export default function renderTamplate() {
-    let result = ''
-    getProducts().then(products => {
+let numberData =0
+let result = ''
+ getProducts().then(products => {
      products.items.forEach(el => {
+         numberData+=1
             result += `<li class="product">
           <div class="img-container">
             <img
@@ -18,22 +19,36 @@ export default function renderTamplate() {
               alt="product"
               class="product-img"
             />
-            <button class="bag-btn" data-id="1">
+            <button class="bag-btn" data-id="${numberData}">
               <i class="fas fa-shopping-cart"></i>
               add to bag
             </button>
           </div>
-          <h3>queen bed</h3>
+          <h3>${el.name}</h3>
           <h4>${el.price}</h4>
         </li>`
     });
-        listProductsRef.insertAdjacentHTML('beforeend', result)  
-        return result
-});
-}
+     listProductsRef.insertAdjacentHTML('beforeend', result)  
+     
+     
+     console.log(refs.product());
 
 
+ })
 
+listProductsRef.addEventListener('click', (e) => {
+    if (e.target.nodeName !== 'BUTTON') {
+        return
+    }
+    console.log(e.target);
+    // const getIdCurrentElInDom = () => e.path[2].getAttribute('id')
+})
+
+//  const FindIdCurrentEl =()=> storage.find(el => {
+//    if (el.id === +getIdCurrentElInDom()) {
+//     return el
+//    }
+//  })
 
 
 

@@ -1,9 +1,6 @@
-import renderTamplate from './render.js'
-renderTamplate()
+import './render.js'
 
-document
-const s = document.querySelector('.product-img')
- console.log(s)
+
 
 const cart = {
   items: [],
