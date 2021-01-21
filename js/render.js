@@ -64,21 +64,19 @@ let result = ''
         //  console.log(refs.chevronUp());
         // const chevronId = refs.cartItem().children   /* [2].firstElementChild *//* .dataset.id */
 
-             refs.cartItem().forEach(item => {
-            item.children[2].firstElementChild.addEventListener('click', fnRemove)
-          })
-
        })
 }
    
 function fnRemove(e) {
-  console.log(e);
+  console.log(e.target.nextElementSibling);
   const numberItem = (Number(e.target.dataset.id));
   cart.getItems().find(el => {
     if (el.id === e.target.dataset.id) {
       console.log(el);
        cart.abb(el)
+      refs.cartContent.innerHTML = refs.cartItem();
       renderProductInCartContent()
+      
   }
 })
   // if (cart.items.id[+e.target.dataset.id]) {
@@ -105,5 +103,8 @@ function renderProductInCartContent() {
 )
   refs.cartContent.innerHTML = markupProductInCart;
 
+  refs.cartItem().forEach(item => {
+            item.children[2].firstElementChild.addEventListener('click', fnRemove)
+           })
   // console.log('вы добаили' + FindIdCurrentEl().name);
 }
