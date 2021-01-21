@@ -31,11 +31,19 @@ let result = ''
     });
      listProductsRef.insertAdjacentHTML('beforeend', result)  
      
-     
-    //  console.log(refs.product());
+   addedProductInCart(products)
+
+ })
 
 
-     listProductsRef.addEventListener('click', (e) => {
+
+  
+
+//    divName.innerHTML = markup;
+  // console.log('вы добаили' + FindIdCurrentEl().name);
+
+   function addedProductInCart (products) {
+       listProductsRef.addEventListener('click', (e) => {
     if (e.target.nodeName !== 'BUTTON') {
         return
     }
@@ -43,189 +51,32 @@ let result = ''
          const items = products.items
          const FindIdCurrentEl =()=> items.find(el => {
              if (el.id === getDataAtrOnClick()) {
-                //  console.log(el);
        return el
            }
          })
-      //  console.log(FindIdCurrentEl());
        cart.abb(FindIdCurrentEl())
-      //  console.log(cart.items);
        console.log(cart.totalPrice());
        refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
-      })
- })
-
- const markupProductInCart =cart.items.reduce(
-  (acc, el) => acc + `
-  <div class="wrapper-elem" id="${el.name}">
-  <button class="btn-remove-elem" id="${el.name}">X</button>
-  <p>${el.name}  -  ${el.quantity} шт.</p>
-  </div>`,
-  ''
+       renderProductInCartContent()
+       })
+}
+   
+function renderProductInCartContent() {
+  const markupProductInCart =cart.items.reduce(
+  (acc, el) => acc + 
+                   ` <div class="cart-item">
+                    <img src="./images/product-1.jpeg" alt="product">
+                    <div>
+                        <h4>${el.name}</h4>
+                        <h5>${el.price}</h5>
+                        <span class="remove-item">Удалить</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                        <p class="item-amount">${el.quantity}</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div></div>`, ''
 )
-
-  
-
-//    divName.innerHTML = markup;
+   refs.cartContent.innerHTML = markupProductInCart;
   // console.log('вы добаили' + FindIdCurrentEl().name);
-
-
-
-
-
-
-
-
-
-// let result =''
-//     .then(products => {
-//         products.forEach(el => {
-//             result = `<li class="product">
-//           <div class="img-container">
-//             <img
-//               src="./images/product-1.jpeg"
-//               alt="product"
-//               class="product-img"
-//             />
-//             <button class="bag-btn" data-id="1">
-//               <i class="fas fa-shopping-cart"></i>
-//               add to bag
-//             </button>
-//           </div>
-//           <h3>queen bed</h3>
-//           <h4>${el.price}</h4>
-//         </li>`
-        
-//         listProductsRef.insertAdjacentHTML('beforeend',result)
-//         });
-//         const s = document.querySelector('.product-img')
-//  console.log(s);
-
-//     })
-        
-
-
-
-
-
-        /* <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>48 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>75 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>150 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>1200 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>10 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>120 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>85 грн.</h4>
-        </li>
-        <li class="product">
-          <div class="img-container">
-            <img
-              src="./images/product-1.jpeg"
-              alt="product"
-              class="product-img"
-            />
-            <button class="bag-btn" data-id="1">
-              <i class="fas fa-shopping-cart"></i>
-              Добавить в корзину
-            </button>
-          </div>
-          <h3>queen bed</h3>
-          <h4>15 грн.</h4>
-        </li>
-      </ul> */
+}
