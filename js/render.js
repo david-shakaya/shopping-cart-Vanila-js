@@ -32,7 +32,6 @@ let result = ''
      listProductsRef.insertAdjacentHTML('beforeend', result)  
      
    addedProductInCart(products)
-
  })
 
 
@@ -43,40 +42,68 @@ let result = ''
   // console.log('вы добаили' + FindIdCurrentEl().name);
 
    function addedProductInCart (products) {
-       listProductsRef.addEventListener('click', (e) => {
+     listProductsRef.addEventListener('click', (e) => {
+         console.log('sddssds');
     if (e.target.nodeName !== 'BUTTON') {
         return
     }
     const getDataAtrOnClick = () => e.target.attributes[1].value
          const items = products.items
-         const FindIdCurrentEl =()=> items.find(el => {
-             if (el.id === getDataAtrOnClick()) {
+         const FindIdCurrentEl =(getData)=> items.find(el => {
+             if (el.id === getData) {
        return el
            }
          })
-       cart.abb(FindIdCurrentEl())
+       cart.abb(FindIdCurrentEl(getDataAtrOnClick()))
        console.log(cart.totalPrice());
        refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
-       renderProductInCartContent()
+   
+         renderProductInCartContent()
+
+         
+        //  console.log(refs.chevronUp());
+        // const chevronId = refs.cartItem().children   /* [2].firstElementChild *//* .dataset.id */
+
+             refs.cartItem().forEach(item => {
+            item.children[2].firstElementChild.addEventListener('click', fnRemove)
+          })
+
        })
 }
    
+function fnRemove(e) {
+  console.log(e);
+  const numberItem = (Number(e.target.dataset.id));
+  cart.getItems().find(el => {
+    if (el.id === e.target.dataset.id) {
+      console.log(el);
+       cart.abb(el)
+      renderProductInCartContent()
+  }
+})
+  // if (cart.items.id[+e.target.dataset.id]) {
+  //   console.log(cart.items.id[+e.target.dataset.id]);
+  // }
+  
+}
+
 function renderProductInCartContent() {
   const markupProductInCart =cart.items.reduce(
   (acc, el) => acc + 
                    ` <div class="cart-item">
-                    <img src="./images/product-1.jpeg" alt="product">
+                    <img src="${el.img.url}" alt="${el.name}">
                     <div>
                         <h4>${el.name}</h4>
                         <h5>${el.price}</h5>
                         <span class="remove-item">Удалить</span>
                     </div>
                     <div>
-                        <i class="fas fa-chevron-up"></i>
+                        <i class="fas fa-chevron-up" data-id="${el.id}"></i>
                         <p class="item-amount">${el.quantity}</p>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down" data-id="${el.id}"></i>
                     </div></div>`, ''
 )
-   refs.cartContent.innerHTML = markupProductInCart;
+  refs.cartContent.innerHTML = markupProductInCart;
+
   // console.log('вы добаили' + FindIdCurrentEl().name);
 }

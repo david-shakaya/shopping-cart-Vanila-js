@@ -6,7 +6,7 @@ const cart = {
   },
   abb(product) {
     for (const item of this.items) {
-      if (product.name === item.name) {
+      if (product.id === item.id) {
         return (item.quantity += 1);
       }
     }
