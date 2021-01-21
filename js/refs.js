@@ -16,6 +16,7 @@ const refs = {
     closeCart: document.querySelector('.close-cart'),
     cartTotal: document.querySelector('.cart-total'),
     cartContent: document.querySelector('.cart-content'),
+    clearCart: document.querySelector('.clear-cart'),
     
 }
 

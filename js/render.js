@@ -22,7 +22,7 @@ let result = ''
             />
             <button class="bag-btn" data-id="${numberData}">
               <i class="fas fa-shopping-cart"></i>
-              add to bag
+              Добавить в корзину
             </button>
           </div>
           <h3>${el.name}</h3>
@@ -33,10 +33,6 @@ let result = ''
      
    addedProductInCart(products)
  })
-
-
-
-  
 
 //    divName.innerHTML = markup;
   // console.log('вы добаили' + FindIdCurrentEl().name);
@@ -68,10 +64,22 @@ let result = ''
 
        })
 }
-   
-function fnRemove(e) {
+
+function minusFromQuantity (e) {
   console.log(e.target.nextElementSibling);
-  const numberItem = (Number(e.target.dataset.id));
+  cart.getItems().find(el => {
+    if (el.id === e.target.dataset.id) {
+      console.log(el);
+       cart.minusResidue(el)
+      refs.cartContent.innerHTML = refs.cartItem();
+      renderProductInCartContent()
+      
+  }
+})
+}
+   
+function plusToQuantity(e) {
+  console.log(e.target.nextElementSibling);
   cart.getItems().find(el => {
     if (el.id === e.target.dataset.id) {
       console.log(el);
@@ -81,10 +89,6 @@ function fnRemove(e) {
       
   }
 })
-  // if (cart.items.id[+e.target.dataset.id]) {
-  //   console.log(cart.items.id[+e.target.dataset.id]);
-  // }
-  
 }
 
 function renderProductInCartContent() {
@@ -103,12 +107,20 @@ function renderProductInCartContent() {
                         <i class="fas fa-chevron-down" data-id="${el.id}"></i>
                     </div></div>`, ''
   )
-  
   refs.cartContent.innerHTML = markupProductInCart;
   refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
+  refs.clearCart.addEventListener('click', clearCart)
    refs.cartItem().forEach(item => {
-            item.children[2].firstElementChild.addEventListener('click', fnRemove)
-           })
-
+            item.children[2].firstElementChild.addEventListener('click', plusToQuantity)
+   })
+     refs.cartItem().forEach(item => {
+            item.children[2].lastElementChild.addEventListener('click', minusFromQuantity)
+     })
+  
   // console.log('вы добаили' + FindIdCurrentEl().name);
+}
+
+function clearCart () {
+  cart.clear()
+  renderProductInCartContent()
 }

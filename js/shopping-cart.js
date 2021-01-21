@@ -16,17 +16,17 @@ const cart = {
   },
   minusResidue(prod) {
      for (const item of this.items) {
-      if (prod.name === item.name) {
-        return (item.residue -=1);
+      if (prod.id === item.id) {
+          item.quantity -= 1;
       }
-    }
-    this.items.push(prod);
+      }
+    // this.items.push(prod);
   },
   remove(productName) {
     console.log(`Удаляем продукт ${productName}`);
 
     for (let i = 0; i < this.items.length; i += 1) {
-      if (productName === this.items[i].name) {
+      if (productName === this.items[i].id) {
         this.items.splice(i, 1);
       }
     }
