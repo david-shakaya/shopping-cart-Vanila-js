@@ -56,13 +56,15 @@ let result = ''
          })
        cart.abb(FindIdCurrentEl(getDataAtrOnClick()))
        console.log(cart.totalPrice());
-       refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
-   
-         renderProductInCartContent()
+       
+       renderProductInCartContent()
+       
 
          
         //  console.log(refs.chevronUp());
         // const chevronId = refs.cartItem().children   /* [2].firstElementChild *//* .dataset.id */
+
+      
 
        })
 }
@@ -100,11 +102,13 @@ function renderProductInCartContent() {
                         <p class="item-amount">${el.quantity}</p>
                         <i class="fas fa-chevron-down" data-id="${el.id}"></i>
                     </div></div>`, ''
-)
+  )
+  
   refs.cartContent.innerHTML = markupProductInCart;
-
-  refs.cartItem().forEach(item => {
+  refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
+   refs.cartItem().forEach(item => {
             item.children[2].firstElementChild.addEventListener('click', fnRemove)
            })
+
   // console.log('вы добаили' + FindIdCurrentEl().name);
 }
