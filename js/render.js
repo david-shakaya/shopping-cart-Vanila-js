@@ -1,6 +1,7 @@
 const listProductsRef = document.querySelector('.list-products-js');
 
 import refs from './refs.js'
+import cart from './shopping-cart.js';
 
 const getProducts= async () => {
     const response = await fetch('../products.json');
@@ -31,7 +32,7 @@ let result = ''
      listProductsRef.insertAdjacentHTML('beforeend', result)  
      
      
-     console.log(refs.product());
+    //  console.log(refs.product());
 
 
      listProductsRef.addEventListener('click', (e) => {
@@ -42,15 +43,31 @@ let result = ''
          const items = products.items
          const FindIdCurrentEl =()=> items.find(el => {
              if (el.id === getDataAtrOnClick()) {
-                 el.quantity += 1
-                 console.log(el);
+                //  console.log(el);
        return el
-   }
- })
-console.dir(FindIdCurrentEl());
-})
+           }
+         })
+      //  console.log(FindIdCurrentEl());
+       cart.abb(FindIdCurrentEl())
+      //  console.log(cart.items);
+       console.log(cart.totalPrice());
+       refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
+      })
  })
 
+ const markupProductInCart =cart.items.reduce(
+  (acc, el) => acc + `
+  <div class="wrapper-elem" id="${el.name}">
+  <button class="btn-remove-elem" id="${el.name}">X</button>
+  <p>${el.name}  -  ${el.quantity} шт.</p>
+  </div>`,
+  ''
+)
+
+  
+
+//    divName.innerHTML = markup;
+  // console.log('вы добаили' + FindIdCurrentEl().name);
 
 
 
