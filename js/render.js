@@ -77,6 +77,7 @@ function minusFromQuantity (e) {
   }
 })
 }
+ 
    
 function plusToQuantity(e) {
   console.log(e.target.nextElementSibling);
@@ -91,6 +92,8 @@ function plusToQuantity(e) {
 })
 }
 
+ 
+
 function renderProductInCartContent() {
   const markupProductInCart =cart.items.reduce(
   (acc, el) => acc + 
@@ -99,7 +102,7 @@ function renderProductInCartContent() {
                     <div>
                         <h4>${el.name}</h4>
                         <h5>${el.price}</h5>
-                        <span class="remove-item">Удалить</span>
+                        <span class="remove-item" data-id="${el.id}">Удалить</span>
                     </div>
                     <div>
                         <i class="fas fa-chevron-up" data-id="${el.id}"></i>
@@ -110,17 +113,27 @@ function renderProductInCartContent() {
   refs.cartContent.innerHTML = markupProductInCart;
   refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
   refs.clearCart.addEventListener('click', clearCart)
+  // refs.removeItem.addEventListener('click', findIdCurrentEl)
    refs.cartItem().forEach(item => {
             item.children[2].firstElementChild.addEventListener('click', plusToQuantity)
    })
-     refs.cartItem().forEach(item => {
+  refs.cartItem().forEach(item => {
             item.children[2].lastElementChild.addEventListener('click', minusFromQuantity)
      })
   
-  // console.log('вы добаили' + FindIdCurrentEl().name);
+  refs.removeItem().forEach(el => {
+    el.addEventListener('click', removeItemFromCart)
+  })
+
 }
 
 function clearCart () {
   cart.clear()
   renderProductInCartContent()
 }
+
+
+function removeItemFromCart(e) {
+    cart.remove(e.target.dataset.id)
+     renderProductInCartContent()
+}   
