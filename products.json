@@ -45,7 +45,7 @@
     {  "id": "8",
      "name": "Яблоко красное",
      "price": 19,
-     "quantity": 0,
+     "quantity":0,
      "img": { "url": "../images/product-8.jpeg" }
   }
    

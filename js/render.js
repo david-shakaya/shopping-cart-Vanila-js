@@ -4,7 +4,7 @@ import refs from './refs.js'
 import cart from './shopping-cart.js';
 
 const getProducts= async () => {
-    const response = await fetch('../products.json');
+    const response = await fetch('./products.json');
     const products = response.json();
   return products;
 };
