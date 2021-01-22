@@ -42,7 +42,8 @@ let result = ''
          console.log('sddssds');
     if (e.target.nodeName !== 'BUTTON') {
         return
-    }
+       }
+       showNotification();
     const getDataAtrOnClick = () => e.target.attributes[1].value
          const items = products.items
          const FindIdCurrentEl =(getData)=> items.find(el => {
@@ -137,4 +138,41 @@ function removeItemFromCart(e) {
     cart.remove(e.target.dataset.id)
      renderProductInCartContent()
 }   
+
+
+
+
+
+
+
+const NOTIFICATION_DELAY = 3000;
+let timeoutId = null;
+// const refs = {
+//   notification: document.querySelector('.js-alert'),
+// };
+
+refs.notification.addEventListener('click', onNotificationClick);
+
+
+
+/*
+ * Функции
+ */
+function onNotificationClick() {
+  hideNotification();
+  clearTimeout(timeoutId);
+}
+
+function showNotification() {
+  refs.notification.classList.add('is-visible');
+
+  timeoutId = setTimeout(() => {
+    console.log('Закрываем алерт автоматически чтобы не висел');
+    hideNotification();
+  }, NOTIFICATION_DELAY);
+}
+
+function hideNotification() {
+  refs.notification.classList.remove('is-visible');
+}
 
