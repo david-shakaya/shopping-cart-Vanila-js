@@ -289,12 +289,10 @@ body {
 
   transform: translateY(calc(-100%));
   visibility: hidden;
-  opacity: 1;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .alert.success {
-  border: 1px solid #388e3c;
   background-color: var(--primaryColor);
   color: var(--mainWhite);
 }
@@ -302,6 +300,5 @@ body {
 .alert.is-visible {
   transform: translateX(0);
   visibility: visible;
-  opacity: 1;
   z-index: 1;
 }
