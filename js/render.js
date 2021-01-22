@@ -54,13 +54,6 @@ let result = ''
        console.log(cart.totalPrice());
        
        renderProductInCartContent()
-       
-
-         
-        //  console.log(refs.chevronUp());
-        // const chevronId = refs.cartItem().children   /* [2].firstElementChild *//* .dataset.id */
-
-      
 
        })
 }
@@ -125,6 +118,13 @@ function renderProductInCartContent() {
     el.addEventListener('click', removeItemFromCart)
   })
 
+  refs.cartItemsCounter.textContent = summQuantity()
+}
+
+
+
+const summQuantity = () => {
+ return cart.getItems().reduce((acc, el) => acc + el.quantity, 0)
 }
 
 function clearCart () {
@@ -137,3 +137,4 @@ function removeItemFromCart(e) {
     cart.remove(e.target.dataset.id)
      renderProductInCartContent()
 }   
+

@@ -19,8 +19,8 @@ const refs = {
     clearCart: document.querySelector('.clear-cart'),
     removeItem() {
       return  document.querySelectorAll('.remove-item')
-    } 
-    
+    } ,
+    cartItemsCounter:document.querySelector('.cart-items'),
 }
 
 export default refs
