@@ -11,7 +11,14 @@ const refs = {
       return document.querySelectorAll('.cart-item')
     },
     cartBtn: document.querySelector('.cart-btn'),
-    cartOverlay: document.querySelector('.cart-overlay'),
+  cartOverlay: document.querySelector('.cart-overlay'),
+
+  openMenuInfo:document.querySelector('.nav-icon'),
+  closeMenuInfo: document.querySelector('.close-menu-info'),
+  infoOverlay: document.querySelector('.info-overlay'),
+  infoMenu: document.querySelector('.info-menu'),
+  linkInfoShop:document.querySelector('.link-info-shop-js'),
+    
     cart: document.querySelector('.cart'),
     closeCart: document.querySelector('.close-cart'),
     cartTotal: document.querySelector('.cart-total'),
