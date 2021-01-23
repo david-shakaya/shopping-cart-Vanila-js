@@ -68,7 +68,6 @@ function minusFromQuantity (e) {
         removeItemFromCart(e)
       }
       renderProductInCartContent()
-      
   }
 })
 }
