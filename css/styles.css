@@ -84,6 +84,7 @@ body {
   margin-bottom: 2.5rem;
 }
 .banner-btn {
+  text-decoration: none;
   padding: 1rem 3rem;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
