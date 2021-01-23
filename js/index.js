@@ -35,3 +35,5 @@ refs.linkInfoShop.addEventListener('click', (e) => {
     onHandlecloseInfo()
   }
 })
+
+
