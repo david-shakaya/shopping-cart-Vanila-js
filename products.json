@@ -1,52 +1,52 @@
 {
   "items": [
   {  "id": "1",
-     "name": "Участок на луне",
+     "name": "house near 'Mons Agnes'",
      "price": 10,
      "quantity": 0,
-     "img": { "url": "./images/product-1.jpeg" }
+     "img": { "url": "./images/product-1.jpg" }
   },
     {  "id": "2",
-     "name": "Яблоко красное",
+     "name": "plot near 'Mons Hadley'",
      "price": 12200,
      "quantity": 0,
-     "img": { "url": "./images/product-2.jpeg" }
+     "img": { "url": "./images/product-2.jpg" }
   },
     {  "id": "3",
-     "name": "Доля",
+     "name": "plot near 'Mons Wolff'",
      "price": 1030,
      "quantity": 0,
-     "img": { "url": "./images/product-3.jpeg" }
+     "img": { "url": "./images/product-3.jpg" }
   },
     {  "id": "4",
-     "name": "Лицо со шрамом",
+     "name": "Plot 'Montes Recti'",
      "price": 102,
      "quantity": 0,
-     "img": { "url": "./images/product-4.jpeg" }
+     "img": { "url": "./images/product-4.jpg" }
   },
     {  "id": "5",
-     "name": "Диван",
+     "name": "Plot 'Mons Hadley Delta'",
      "price": 90,
      "quantity": 0,
-     "img": { "url": "./images/product-5.jpeg" }
+     "img": { "url": "./images/product-5.jpg" }
   },
     {  "id": "6",
-     "name": "Приватищазуоцт",
+     "name": "Plot 'Montes Carpatus'",
      "price": 20,
      "quantity": 0,
-     "img": { "url": "./images/product-6.jpeg" }
+     "img": { "url": "./images/product-6.jpg" }
   },
     {  "id": "7",
-     "name": "Яблоко красное",
+     "name": "Plot 'Montes Harbinger'",
      "price": 25,
      "quantity": 0,
-     "img": { "url": "./images/product-7.jpeg" }
+     "img": { "url": "./images/product-7.jpg" }
   },
     {  "id": "8",
-     "name": "Яблоко красное",
+     "name": "Plot 'Montes Jura'",
      "price": 19,
      "quantity":0,
-     "img": { "url": "./images/product-8.jpeg" }
+     "img": { "url": "./images/product-8.png" }
   }
    
 ]

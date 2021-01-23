@@ -22,11 +22,11 @@ let result = ''
             />
             <button class="bag-btn" data-id="${numberData}">
               <i class="fas fa-shopping-cart"></i>
-              Добавить в корзину
+              Add to cart
             </button>
           </div>
           <h3>${el.name}</h3>
-          <h4>${el.price} грн.</h4>
+          <h4>${el.price} usd.</h4>
         </li>`
     });
      listProductsRef.insertAdjacentHTML('beforeend', result)  
@@ -71,7 +71,6 @@ function minusFromQuantity (e) {
   }
 })
 }
- 
    
 function plusToQuantity(e) {
   console.log(e.target.nextElementSibling);
@@ -96,7 +95,7 @@ function renderProductInCartContent() {
                     <div>
                         <h4>${el.name}</h4>
                         <h5>${el.price}</h5>
-                        <span class="remove-item" data-id="${el.id}">Удалить</span>
+                        <span class="remove-item" data-id="${el.id}">Remove</span>
                     </div>
                     <div>
                         <i class="fas fa-chevron-up" data-id="${el.id}"></i>
@@ -105,7 +104,7 @@ function renderProductInCartContent() {
                     </div></div>`, ''
   )
   refs.cartContent.innerHTML = markupProductInCart;
-  refs.cartTotal.innerHTML = `${cart.totalPrice()} грн.`
+  refs.cartTotal.innerHTML = `${cart.totalPrice()} usd.`
   refs.clearCart.addEventListener('click', clearCart)
   // refs.removeItem.addEventListener('click', findIdCurrentEl)
    refs.cartItem().forEach(item => {
