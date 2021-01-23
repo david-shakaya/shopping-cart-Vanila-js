@@ -60,12 +60,13 @@ let result = ''
 }
 
 function minusFromQuantity (e) {
-  console.log(e.target.nextElementSibling);
   cart.getItems().find(el => {
     if (el.id === e.target.dataset.id) {
-      console.log(el);
-       cart.minusResidue(el)
+      cart.minusResidue(el)
       refs.cartContent.innerHTML = refs.cartItem();
+      if (el.quantity === 0) {
+        removeItemFromCart(e)
+      }
       renderProductInCartContent()
       
   }
